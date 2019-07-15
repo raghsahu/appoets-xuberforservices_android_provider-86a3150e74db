@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.xuber_for_services.provider.Activity.SplashScreen;
 import com.xuber_for_services.provider.Helper.CustomDialog;
 import com.xuber_for_services.provider.Helper.Sessionwa;
+import com.xuber_for_services.provider.Helper.SharedHelper;
 import com.xuber_for_services.provider.R;
 import com.xuber_for_services.provider.Utils.Utility;
 
@@ -98,6 +99,11 @@ public class Kyc1_Activity extends AppCompatActivity {
         calender1 = (ImageView) findViewById(R.id.calender1);
         imgBack = (ImageView) findViewById(R.id.imgBack);
 
+        if (!SharedHelper.getKey(Kyc1_Activity.this,"id").equalsIgnoreCase("") ||
+        !SharedHelper.getKey(Kyc1_Activity.this,"id").equalsIgnoreCase("null"))
+        {
+            regNo.setText(SharedHelper.getKey(Kyc1_Activity.this,"id"));
+        }
 
 
         //**********************************************************

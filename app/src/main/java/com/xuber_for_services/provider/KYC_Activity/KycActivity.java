@@ -959,9 +959,10 @@ public class KycActivity extends AppCompatActivity {
                         HttpMultipartMode.BROWSER_COMPATIBLE);
 
                 String kyc_id=SharedHelper.getKey(KycActivity.this,"KYC_ID");
+                String form_no=SharedHelper.getKey(KycActivity.this,"id");
 
                 entity.addPart("id", new StringBody(kyc_id));
-                entity.addPart("form_no", new StringBody("123456"));
+                entity.addPart("form_no", new StringBody(form_no));
                 entity.addPart("reg_no", new StringBody(RegNo));
                 entity.addPart("date_application", new StringBody(Datee));
                 entity.addPart("provider_name", new StringBody(ProName));

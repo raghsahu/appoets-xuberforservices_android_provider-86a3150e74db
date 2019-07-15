@@ -79,8 +79,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:imeOptions="actionNext"
-        android:inputType="number"
-        android:maxLines="1"
+        android:editable="false"
+        android:focusable="false"
         android:textColor="@color/btn_color"
         android:textSize="@dimen/_12sdp" />
 
@@ -106,8 +106,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:editable="false"
+            android:focusable="false"
             android:imeOptions="actionNext"
-            android:inputType="textPersonName"
             android:maxLength="10"
             android:maxLines="1"
             android:drawableRight="@drawable/calen"
@@ -203,9 +203,9 @@
             android:layout_weight="0.15"
             android:editable="false"
             android:imeOptions="actionNext"
-            android:inputType="textPersonName"
             android:drawableRight="@drawable/calen"
             android:maxLines="1"
+            android:focusable="false"
             android:textColor="@color/btn_color"
             android:textSize="@dimen/_12sdp" />
 
