@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".KYC_Activity.Kyc1_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/btn_color"
+        android:elevation="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:src="@drawable/back_icon"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="Kyc form 1"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.10"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Please Fill Your Basic Details:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Registration No."
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProEditText
+        android:id="@+id/regNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Date of application"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <com.xuber_for_services.provider.Utils.ClanProEditText
+            android:id="@+id/datee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:editable="false"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:drawableRight="@drawable/calen"
+            android:textColor="@color/btn_color"
+            android:textSize="@dimen/_12sdp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/calender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            app:srcCompat="@drawable/calen" />
+    </LinearLayout>
+
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Provider Name"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProEditText
+        android:id="@+id/proName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Father Name"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProEditText
+        android:id="@+id/fatherName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Mother Name"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProEditText
+        android:id="@+id/motherName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Date of birth"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <com.xuber_for_services.provider.Utils.ClanProEditText
+            android:id="@+id/dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:editable="false"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:drawableRight="@drawable/calen"
+            android:maxLines="1"
+            android:textColor="@color/btn_color"
+            android:textSize="@dimen/_12sdp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/calender1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            app:srcCompat="@drawable/calen" />
+
+    </LinearLayout>
+
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name of ID Proof"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <Spinner
+        android:id="@+id/proof"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:entries="@array/id_proof"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Id No"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <com.xuber_for_services.provider.Utils.ClanProEditText
+        android:id="@+id/idNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <!--**********************************-->
+    <com.xuber_for_services.provider.Utils.ClanProTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Id Proof Image"
+        android:textColor="@color/user_name"
+        android:textSize="@dimen/_11sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/idImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/black"
+            android:src="@drawable/ic_dummy_user" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/border_stroke"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="Upload"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.90"
+            android:gravity="center"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_weight="0.50"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/btn_next1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center"
+                    android:text="Next"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+</LinearLayout>
+</LinearLayout>
+
+

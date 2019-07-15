@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".KYC_Activity.KycActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/btn_color"
+        android:elevation="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:src="@drawable/back_icon"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="Kyc form 3"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.10"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Please Fill Service Information:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Group"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <Spinner
+                    android:id="@+id/group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:entries="@array/group"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Name Of Servcie"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/serviceName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Service Provinding Area"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Upto KM"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/upto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Area Pin Code "
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/pinCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Registered By:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Employee Name"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/employee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Employee Code"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Designation"
+                    android:textColor="@color/user_name"
+                    android:textSize="@dimen/_11sdp" />
+
+                <com.xuber_for_services.provider.Utils.ClanProEditText
+                    android:id="@+id/designation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/btn_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Please Fill Your Bank Details:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aadhar No."
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/aadhar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Name"
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/bank"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pan card"
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/pan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Account No."
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/bankAc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IFSC Code"
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/ifsc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.xuber_for_services.provider.Utils.ClanProTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Branch"
+                        android:textColor="@color/user_name"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                    <com.xuber_for_services.provider.Utils.ClanProEditText
+                        android:id="@+id/branch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="@color/btn_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.90"
+            android:gravity="center"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_weight="0.50"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/lblSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.50"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/lblUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center"
+                    android:text="Update"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <com.xuber_for_services.provider.Utils.ClanProButton
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
