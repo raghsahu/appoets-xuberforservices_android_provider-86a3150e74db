@@ -235,13 +235,30 @@ public class SplashScreen extends AppCompatActivity {
 
     public void GoToMainActivity() {
         Log.e("value" , " is "+sessionwa.isLoggedIn());
+        Log.e("value" , " kyc status "+SharedHelper.getKey(activity,"kyc_status"));
         Log.e("value" , " is "+SharedHelper.getKycName(SplashScreen.this));
        // Toast.makeText(activity, "value is   "+SharedHelper.getKey(context, "loggedIn").equalsIgnoreCase(getString(R.string.True)), Toast.LENGTH_LONG).show();
         if(sessionwa.isLoggedIn() && SharedHelper.getKey(context, "loggedIn").equalsIgnoreCase(getString(R.string.True)))
         {
+//            if(!SharedHelper.getKey(activity,"kyc_status").equals("true"))
+//            {
+//                Intent mainIntent = new Intent(activity, ActivityPassword.class);
+//                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(mainIntent);
+//                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+//                activity.finish();
+//            }else {
+//                Intent mainIntent = new Intent(activity, Home.class);
+//                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(mainIntent);
+//                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+//                activity.finish();
+//
+//            }
             Intent mainIntent = new Intent(activity, Home.class);
             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(mainIntent);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             activity.finish();
 
         }else {

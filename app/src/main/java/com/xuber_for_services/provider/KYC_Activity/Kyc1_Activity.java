@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -48,6 +49,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Formatter;
 import java.util.Locale;
 
 public class Kyc1_Activity extends AppCompatActivity {
@@ -67,6 +69,7 @@ public class Kyc1_Activity extends AppCompatActivity {
 
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     String userChoosenTask;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +126,8 @@ public class Kyc1_Activity extends AppCompatActivity {
                         final int[] mYear = {mcurrentDate.get(Calendar.YEAR)};
                         final int[] mMonth = {mcurrentDate.get(Calendar.MONTH)};
                         final int[] mDay = {mcurrentDate.get(Calendar.DAY_OF_MONTH)};
-                        DatePickerDialog mDatePicker = new DatePickerDialog(Kyc1_Activity.this, new DatePickerDialog.OnDateSetListener() {
+                        DatePickerDialog mDatePicker = new DatePickerDialog(Kyc1_Activity.this,
+                                new DatePickerDialog.OnDateSetListener() {
                             public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
                                 Calendar myCalendar = Calendar.getInstance();
                                 myCalendar.set(Calendar.YEAR, selectedyear);
@@ -140,6 +144,8 @@ public class Kyc1_Activity extends AppCompatActivity {
                         }, mYear[0], mMonth[0], mDay[0]);
                         //mDatePicker.setTitle("Select date");
                         mDatePicker.show();
+                        mDatePicker.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                        mDatePicker.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
 
 
                         return true;
@@ -148,8 +154,7 @@ public class Kyc1_Activity extends AppCompatActivity {
                 return false;
             }
         });
-//*******************************************************************************
-
+//******************************************************************************
         //**********************************************************
 
         dob.setOnTouchListener(new View.OnTouchListener() {
@@ -184,6 +189,8 @@ public class Kyc1_Activity extends AppCompatActivity {
                         }, mYear[0], mMonth[0], mDay[0]);
                         //mDatePicker.setTitle("Select date");
                         mDatePicker.show();
+                        mDatePicker.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+                        mDatePicker.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
 
 
                         return true;

@@ -251,7 +251,7 @@ public class Home extends AppCompatActivity implements NavigationDrawerFragment.
         SharedHelper.putKey(context, "current_status", "");
         SharedHelper.putKey(context, "loggedIn", getString(R.string.False));
        // SharedHelper.putKey(context,"kyc_status","");
-       // sessionwa.setLogin(false);
+        sessionwa.setLogin(false);
 
 
 

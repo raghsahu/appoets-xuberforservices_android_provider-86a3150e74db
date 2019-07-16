@@ -215,6 +215,7 @@ public class ActivityPassword extends AppCompatActivity {
                     SharedHelper.putKey(context, "description", response.optString("description"));
                     SharedHelper.putKey(context, "wallet_balance", response.optString("wallet_balance"));
                     SharedHelper.putKey(context, "payment_mode", response.optString("payment_mode"));
+
                     SharedHelper.putKey(context, "kyc_status", response.optString("kyc"));
                     if (!response.optString("currency").equalsIgnoreCase("") || !response.optString("currency").equalsIgnoreCase("null")) {
                         SharedHelper.putKey(context, "currency", response.optString("currency"));
@@ -463,6 +464,7 @@ public class ActivityPassword extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             activity.finish();
         }else {
+            sessionwa.setLogin(true);
             Intent mainIntent = new Intent(activity, Home.class);
             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(mainIntent);
