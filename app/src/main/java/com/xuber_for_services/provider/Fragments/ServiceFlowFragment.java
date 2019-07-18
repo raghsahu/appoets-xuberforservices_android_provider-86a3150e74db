@@ -226,7 +226,8 @@ public class ServiceFlowFragment extends Fragment implements OnMapReadyCallback,
 
     //UI Elements
 
-    LinearLayout lnrMap, lnrGoOffline, lnrWorkStatus, lnrAcceptOrReject, lnrCancelTrip, lnrSchedule, lnrServiceFlow, lnrInvoice, lnrRateProvider, lnrCall, lnrCall1, lnrServicePhoto, lnrAfterService, lnrBeforeService, offlineLayout;
+    LinearLayout lnrMap, lnrGoOffline, lnrWorkStatus, lnrAcceptOrReject, lnrCancelTrip, lnrSchedule, lnrServiceFlow, lnrInvoice, lnrRateProvider, lnrCall, lnrCall1, lnrServicePhoto, lnrAfterService,
+            lnrBeforeService, offlineLayout;
 
     RelativeLayout toolbar;
 
@@ -1681,6 +1682,15 @@ public class ServiceFlowFragment extends Fragment implements OnMapReadyCallback,
                 public void onResponse(JSONObject response) {
                     customDialog.dismiss();
                     if (response != null) {
+
+                        try {
+                            if (response.getString("error").equals("You account has not been approved for driving")){
+
+                                displayMessage("Please wait for approval");
+                            }
+                        }catch (Exception e){
+                            Log.e("error",""+e.getMessage());
+                        }
                         if (response.optJSONObject("service").optString("status").equalsIgnoreCase("offline")) {
                             Toast.makeText(context, "You are now offline!", Toast.LENGTH_SHORT).show();
                             goOffline();
@@ -1821,6 +1831,11 @@ public class ServiceFlowFragment extends Fragment implements OnMapReadyCallback,
                     try {
                         customDialog.dismiss();
 
+                        if (response.getString("error").equals("You account has not been approved for driving")){
+
+                            displayMessage("You account has not been approved for driving");
+                        }
+
                         if (response.optJSONObject("service").optString("status").equalsIgnoreCase("active")) {
                             Toast.makeText(context, "You are now online!", Toast.LENGTH_SHORT).show();
                             offlineImg.setVisibility(View.GONE);
@@ -1828,6 +1843,7 @@ public class ServiceFlowFragment extends Fragment implements OnMapReadyCallback,
                             btnGoOffline.setText(getString(R.string.go_offline));
                             imgCurrentLocation.setVisibility(View.VISIBLE);
                         } else {
+                           // String error =response.optJSONObject("error").toString();
                             displayMessage(getString(R.string.something_went_wrong));
 
                         }

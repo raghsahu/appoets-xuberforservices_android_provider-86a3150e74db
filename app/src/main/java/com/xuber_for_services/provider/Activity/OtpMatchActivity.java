@@ -1,12 +1,15 @@
 package com.xuber_for_services.provider.Activity;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -37,10 +40,12 @@ public class OtpMatchActivity extends AppCompatActivity {
     EditText edit_otp;
     Button btnSendOTP;
 
+    TextView Resend_otp;
     Boolean isInternet;
     ConnectionHelper helper;
     CustomDialog customDialog;
     Utilities utils = new Utilities();
+    SharedHelper sharedHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class OtpMatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp_match);
 
         edit_otp= (EditText) findViewById(R.id.editOTP);
+        Resend_otp= (TextView) findViewById(R.id.lblClickToResend);
         btnSendOTP= (Button) findViewById(R.id.btnSendOTP);
         helper = new ConnectionHelper(OtpMatchActivity.this);
         isInternet = helper.isConnectingToInternet();
@@ -65,11 +71,139 @@ public class OtpMatchActivity extends AppCompatActivity {
                      }
 
                  }
+            }
+        });
 
+        Resend_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.e("rrr","pppp");
+                     if (isInternet) {
+                         Log.e("pro_id",SharedHelper.getKey(OtpMatchActivity.this,"provider_id"));
+                         Resend_registerOtp();
+                     } else {
+                         displayMessage(getString(R.string.something_went_wrong_net));
+                     }
 
             }
         });
 
+
+    }
+
+    private void Resend_registerOtp() {
+        customDialog = new CustomDialog(OtpMatchActivity.this);
+        customDialog.setCancelable(false);
+        customDialog.show();
+        JSONObject object = new JSONObject();
+        try {
+
+            Log.e("pro_id",""+ SharedHelper.getKey(OtpMatchActivity.this,"Provider_id"));
+            object.put("provider_id", SharedHelper.getKey(OtpMatchActivity.this,"Provider_id"));
+            utils.print("Register_OTP", "" + object);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URLHelper.Resent_Otp,
+                object, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                customDialog.dismiss();
+                Log.e("otp_RESponce", response.toString());
+                utils.print("SignInResponse", response.toString());
+                // Toast.makeText(context, "Registration Successful.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OtpMatchActivity.this, "Otp Send Successfully", Toast.LENGTH_SHORT).show();
+
+//                Intent intent = new Intent(OtpMatchActivity.this, ActivityPassword.class);
+//                startActivity(intent);
+
+//                signIn();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                customDialog.dismiss();
+                String json = null;
+                String Message;
+                NetworkResponse response = error.networkResponse;
+
+                if (response != null && response.data != null) {
+                    utils.print("MyTest", "" + error);
+                    utils.print("MyTestError", "" + error.networkResponse);
+                    utils.print("MyTestError1", "" + response.statusCode);
+                    try {
+                        JSONObject errorObj = new JSONObject(new String(response.data));
+
+                        if (response.statusCode == 400 || response.statusCode == 405 || response.statusCode == 500) {
+                            try {
+                                displayMessage(errorObj.optString("message"));
+                            } catch (Exception e) {
+                                displayMessage(getString(R.string.something_went_wrong));
+                            }
+                        }
+                        else if (response.statusCode == 404) {
+                            Log.e("display404", response.toString());
+                            Log.e("display404hi", error.toString());
+
+                        }
+                        else if (response.statusCode == 401) {
+                            try {
+                                if (errorObj.optString("message").equalsIgnoreCase("invalid_token")) {
+                                    //Call Refresh token
+                                } else {
+                                    displayMessage(errorObj.optString("message"));
+                                }
+                            } catch (Exception e) {
+                                displayMessage(getString(R.string.something_went_wrong));
+                            }
+
+                        } else if (response.statusCode == 422) {
+
+                            json = trimMessage(new String(response.data));
+                            if (json != "" && json != null) {
+                                displayMessage(json);
+                            } else {
+                                displayMessage(getString(R.string.please_try_again));
+                            }
+
+                        } /*else if (response.statusCode == 1000){
+
+                        } */ else {
+                            displayMessage(getString(R.string.please_try_again));
+                        }
+
+                    } catch (Exception e) {
+                        Log.e("catcherror",e.getMessage());
+                        Log.e("catcherror","eroorom");
+                        displayMessage(getString(R.string.something_went_wrong));
+                    }
+
+
+                }
+            }
+        }) {
+            //            @Override
+//             public Map<String, String> getHeaders() throws AuthFailureError {
+//                 HashMap<String, String> headers = new HashMap<String, String>();
+//                 headers.put("X-Requested-With", "XMLHttpRequest");
+//                 headers.put("Authorization", "Bearer" + " " + SharedHelper.getKey(OtpMatchActivity.this, "access_token"));
+//                 Log.e("Authoization", "Bearer" + " "
+//                         + SharedHelper.getKey(OtpMatchActivity.this, "access_token"));
+//                 return headers;
+//             }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("X-Requested-With", "XMLHttpRequest");
+                return headers;
+            }
+        };
+
+        XuberServicesApplication.getInstance().addToRequestQueue(jsonObjectRequest);
 
     }
 
@@ -189,7 +323,19 @@ public class OtpMatchActivity extends AppCompatActivity {
 
     }
 
-    private void displayMessage(String string) {
+    public void displayMessage(String toastString) {
+        try {
+            if (getCurrentFocus() != null) {
+                Snackbar snackbar = Snackbar.make(getCurrentFocus(), toastString, Snackbar.LENGTH_SHORT);
+                View snackBarView = snackbar.getView();
+                snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
+                TextView textView = (TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(ContextCompat.getColor(this, R.color.white));
+                snackbar.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

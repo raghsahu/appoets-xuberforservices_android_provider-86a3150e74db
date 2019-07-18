@@ -14,6 +14,7 @@ public class SharedHelper {
     public static final String KYC_ID = "KYC_ID";
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
 
+
     public static void putKey(Context context, String Key, String Value) {
         sharedPreferences = context.getSharedPreferences("Cache", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();

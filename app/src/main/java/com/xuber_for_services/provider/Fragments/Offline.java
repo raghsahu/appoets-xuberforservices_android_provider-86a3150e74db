@@ -133,6 +133,8 @@ public class Offline extends Fragment {
                 if (response != null) {
                     try {
                         customDialog.dismiss();
+
+
                             if (response.optJSONObject("service").optString("status").equalsIgnoreCase("active")) {
                                 mListener.moveToServiceFlowFgmt();
                                 Toast.makeText(context, "You are now online!", Toast.LENGTH_SHORT).show();

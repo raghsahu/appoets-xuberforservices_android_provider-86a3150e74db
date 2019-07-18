@@ -186,6 +186,33 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="vertical">
+
+                        <com.xuber_for_services.provider.Utils.ClanProTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Confirm Password"
+                            android:textColor="@color/user_name"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <com.xuber_for_services.provider.Utils.ClanProEditText
+                            android:id="@+id/conf_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/toogle"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:textColor="@color/btn_color" />
+
+                    </LinearLayout>
+
 
                    <!-- <LinearLayout
                         android:layout_width="match_parent"

@@ -55,6 +55,7 @@
     <string name="email_validation">Enter your email ID.</string>
     <string name="not_valid_email">Not a valid email ID.</string>
     <string name="password_validation">Password can not be left empty.</string>
+    <string name="conf_password_validation">Confirm Password can not be left empty.</string>
     <string name="first_name_empty">First name required.</string>
     <string name="last_name_empty">Last name required.</string>
     <string name="mobile_number_empty">Mobile number required.</string>
@@ -208,6 +209,7 @@
     <string name="total_amount">Total amount</string>
     <string name="confirm">Confirm</string>
     <string name="click_resend">Click here to resend password</string>
+    <string name="click_resend1">Click here to resend Otp</string>
     <string name="cancel_confirm">Are you sure you want to cancel the &service;?</string>
     <string name="call_confirm">Are you sure you want to make a call?</string>
     <string name="service_status">&service; status</string>

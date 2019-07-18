@@ -46,5 +46,6 @@ public class URLHelper {
     public static final String SUMMARY = BASE_URL + "/api/provider/summary";
     public static final String GET_HELP_DETAILS = BASE_URL + "/api/provider/help";
     public static final String GET_TARGET_FOR_SUMMARY = BASE_URL + "/api/provider/target";
+    public static final String Resent_Otp = BASE_URL + "/api/provider/register/resentOtp";
 
 }

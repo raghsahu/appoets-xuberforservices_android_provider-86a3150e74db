@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
     String TAG = "RegisterActivity";
     String device_token, device_UDID;
     ImageView backArrow;
-    EditText email, first_name, last_name, mobile_no, password;
+    EditText email, first_name, last_name, mobile_no, password,conf_password;
     CustomDialog customDialog;
     ConnectionHelper helper;
     Boolean isInternet;
@@ -112,6 +112,42 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 //***********************************************************
+        //***************************************************
+        conf_password.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (conf_password.getRight() - conf_password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+
+
+                        if (conf_password.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+                            conf_password.setTransformationMethod(new SingleLineTransformationMethod());
+                            conf_password.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle_off, 0);
+                        }
+                        else {
+                            conf_password.setTransformationMethod(new PasswordTransformationMethod());
+                            conf_password.setCompoundDrawablesWithIntrinsicBounds( 0, 0, R.drawable.toogle, 0);
+                        }
+
+                        conf_password.setSelection(conf_password.getText().length());
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+//***********************************************************
+
+
+        //******************************************************************************
 
 
         if (Build.VERSION.SDK_INT > 15) {
@@ -132,6 +168,8 @@ public class RegisterActivity extends AppCompatActivity {
 //                }
                 if (password.getText().toString().equals("") || password.getText().toString().equalsIgnoreCase(getString(R.string.password_txt))) {
                     displayMessage(getString(R.string.password_validation));
+                } else if (conf_password.getText().toString().equals("") || conf_password.getText().toString().equalsIgnoreCase(getString(R.string.password_txt))) {
+                    displayMessage(getString(R.string.conf_password_validation));
                 } else if (mobile_no.getText().toString().equals("") || mobile_no.getText().toString().equalsIgnoreCase(getString(R.string.mobile_no))) {
                     displayMessage(getString(R.string.mobile_number_empty));
                 } else if (mobile_no.getText().toString().length() < 10 || mobile_no.getText().toString().length() > 20) {
@@ -146,7 +184,12 @@ public class RegisterActivity extends AppCompatActivity {
                     displayMessage(getString(R.string.last_name_no_number));
                 } else if (password.getText().toString().length() < 6) {
                     displayMessage(getString(R.string.passwd_length));
-                } else {
+                } else if (conf_password.getText().toString().length() < 6) {
+                    displayMessage(getString(R.string.passwd_length));
+                }else if (!conf_password.getText().toString().equals(password.getText().toString())){
+                    displayMessage("Password & Confirm Password not match");
+                }
+                else {
                     if (isInternet) {
                         registerAPI();
                     } else {
@@ -172,6 +215,7 @@ public class RegisterActivity extends AppCompatActivity {
         last_name = (EditText) findViewById(R.id.last_name);
         mobile_no = (EditText) findViewById(R.id.mobile_no);
         password = (EditText) findViewById(R.id.password);
+        conf_password = (EditText) findViewById(R.id.conf_password);
         signUpBtn = (Button) findViewById(R.id.btnSignUp);
         signInLayout = (LinearLayout) findViewById(R.id.lnrRegister);
         helper = new ConnectionHelper(context);
@@ -194,7 +238,7 @@ public class RegisterActivity extends AppCompatActivity {
             object.put("last_name", last_name.getText().toString());
             object.put("email", email.getText().toString());
             object.put("password", password.getText().toString());
-            object.put("password_confirmation", password.getText().toString());
+            object.put("password_confirmation", conf_password.getText().toString());
             object.put("mobile", mobile_no.getText().toString());
             utils.print("InputToRegisterAPI", "" + object);
 
@@ -208,6 +252,20 @@ public class RegisterActivity extends AppCompatActivity {
                 customDialog.dismiss();
                 Log.e("register_RESponce", response.toString());
                 utils.print("SignInResponse", response.toString());
+
+                try {
+
+                    String pro_id=response.getString("id");
+                    Log.e("prod_id",""+pro_id);
+
+                    SharedHelper.putKey(RegisterActivity.this, "Provider_id",pro_id );
+
+
+                }catch (Exception e){
+                    Log.e("error",""+e.getMessage());
+                }
+
+
                // Toast.makeText(context, "Registration Successful.", Toast.LENGTH_SHORT).show();
                 Toast.makeText(context, "Otp Send Successfully", Toast.LENGTH_SHORT).show();
 
@@ -216,6 +274,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 SharedHelper.putKey(RegisterActivity.this, "email", email.getText().toString());
                 SharedHelper.putKey(RegisterActivity.this, "password", password.getText().toString());
+
                 signIn();
             }
         }, new Response.ErrorListener() {
@@ -524,12 +583,19 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void displayMessage(String toastString) {
-        Snackbar snackbar = Snackbar.make(getCurrentFocus(), toastString, Snackbar.LENGTH_SHORT);
-        View snackBarView = snackbar.getView();
-        snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
-        TextView textView = (TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text);
-        textView.setTextColor(ContextCompat.getColor(this, R.color.white));
-        snackbar.show();
+
+        try {
+            if (getCurrentFocus() != null) {
+                Snackbar snackbar = Snackbar.make(getCurrentFocus(), toastString, Snackbar.LENGTH_SHORT);
+                View snackBarView = snackbar.getView();
+                snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
+                TextView textView = (TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(ContextCompat.getColor(this, R.color.white));
+                snackbar.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
