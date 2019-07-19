@@ -35,7 +35,7 @@
                         android:layout_height="@dimen/_125sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/erapid_icon" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

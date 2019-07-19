@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE
     resources
-    [<!ENTITY appname "Xuber Service Provider"><!ENTITY provider "Provider"><!ENTITY providers "Providers"><!ENTITY service "Service"><!ENTITY services "Services"><!ENTITY servicecap "SERVICES"><!ENTITY user "User">]>
+    [<!ENTITY appname "Rapid Service Provider"><!ENTITY provider "Provider"><!ENTITY providers "Providers"><!ENTITY service "Service"><!ENTITY services "Services"><!ENTITY servicecap "SERVICES"><!ENTITY user "User">]>
 
 <resources>
 
@@ -127,7 +127,7 @@
 
     <!--Activity Email/Begin -->
     <string name="whats_your_mail_address">What\'s your email address?</string>
-    <string name="get_moving_with_xuber_services">Get moving with Xuber &services;</string>
+    <string name="get_moving_with_xuber_services">Get moving with Rapid &services;</string>
     <string name="enter_your_mail_id">Enter your mail ID</string>
 
     <!--Activity Password -->
@@ -199,7 +199,7 @@
     <string name="schedule_rides">Schedule &services;</string>
     <string name="canceled_rides">Cancelled &services;</string>
     <string name="help">Help</string>
-    <string name="help_title">Xuber &services; &provider; help</string>
+    <string name="help_title">Rapid &services; &provider; help</string>
     <string name="help_msg">Our team will contact\n you soon!</string>
     <string name="time">Time</string>
     <string name="distance">Distance</string>
